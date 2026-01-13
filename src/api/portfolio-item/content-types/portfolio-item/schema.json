@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "portfolio_items",
+  "info": {
+    "singularName": "portfolio-item",
+    "pluralName": "portfolio-items",
+    "displayName": "portfolio-item"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::portfolio-item.portfolio-item",
+      "inversedBy": "portfolio_items"
+    },
+    "portfolio_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::portfolio-item.portfolio-item",
+      "mappedBy": "category"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
